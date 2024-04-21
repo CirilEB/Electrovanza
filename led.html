@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Led Memory Game</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        /* Reset */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('nonTech.png'); /* Replace 'path/to/your/image.jpg' with the actual path to your image */
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: #fff; /* Change text color to white for better contrast */
+            line-height: 1.6;
+            margin: 0;
+        }
+        /* Header */
+        header {
+            background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+        }
+        /* Navigation */
+        nav {
+            background-color: rgba(90, 89, 89, 0.63); /* Semi-transparent white background */
+            border-bottom: 1px solid #ccc;
+            padding: 10px 0;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        nav a {
+            text-decoration: none;
+            color: #c9c9c9;
+            margin: 0 15px;
+            font-size: 1.2rem;
+        }
+        nav a:hover {
+            color: #ffffff;
+        }
+        /* Container */
+        .container {
+            max-width: 960px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: rgb(163, 163, 163); /* Semi-transparent white background */
+            border-radius: 10px; /* Rounded corners */
+            box-shadow: 0 0 20px rgba(204, 1, 255, 0.384); /* Soft shadow */
+        }
+        /* Sections */
+        section {
+            margin-bottom: 30px;
+        }
+        section h2 {
+            color: #303030;
+            margin-bottom: 15px;
+            font-size: 2rem;
+        }
+        section h3 {
+            color: #252525;
+            margin-bottom: 15px;
+        }
+        /* Forms */
+        form {
+            max-width: 400px;
+            margin: auto;
+            padding: 20px;
+            background-color: #ffffff67;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        form label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        form input[type="text"],
+        form input[type="email"],
+        form input[type="password"],
+        form button[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            transition: border-color 0.3s ease;
+        }
+        form input[type="text"]:focus,
+        form input[type="email"]:focus,
+        form input[type="password"]:focus{
+            outline: none;
+            border-color: #141414;
+        }
+        form button[type="submit"] {
+            background-color: #949494;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        form button[type="submit"]:hover {
+            background-color: #1a1a1a;
+        }
+        /* Footer */
+        footer {
+            background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+        footer p {
+            margin: 10px 0;
+        }
+        footer a {
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <section id="home">
+            <h2>Led Memory Game</h2>
+            <img src="led.png" width="700" height="500" alt="Centered Image" style="display: block; margin-left: auto; margin-right: auto;">
+
+        </section>
+        <section id="registration">
+            <h2>Register Now</h2>
+    <form id="student-form">
+        <label for="student1">Student 1:</label><br>
+        <input type="text" id="student1" name="student1" required><br>
+        <label for="yearbranch1">Year & Branch 1:</label><br>
+        <input type="text" id="yearbranch1" name="yearbranch1" required><br>
+        <label for="mobile1">Mobile 1:</label><br>
+        <input type="text" id="mobile1" name="mobile1" required><br><br>
+
+        <label for="student2">Student 2:</label><br>
+        <input type="text" id="student2" name="student2" required><br>
+        <label for="yearbranch2">Year & Branch 2:</label><br>
+        <input type="text" id="yearbranch2" name="yearbranch2" required><br>
+        <label for="mobile2">Mobile 2:</label><br>
+        <input type="text" id="mobile2" name="mobile2" required><br><br>
+
+        <label for="student3">Student 3:</label><br>
+        <input type="text" id="student3" name="student3" required><br>
+        <label for="yearbranch3">Year & Branch 3:</label><br>
+        <input type="text" id="yearbranch3" name="yearbranch3" required><br>
+        <label for="mobile3">Mobile 3:</label><br>
+        <input type="text" id="mobile3" name="mobile3" required><br><br>
+
+        <label for="student4">Student 4:</label><br>
+        <input type="text" id="student4" name="student4" required><br>
+        <label for="yearbranch4">Year & Branch 4:</label><br>
+        <input type="text" id="yearbranch4" name="yearbranch4" required><br>
+        <label for="mobile4">Mobile 4:</label><br>
+        <input type="text" id="mobile4" name="mobile4" required><br><br>
+
+        <label for="email">Email:</label><br>
+        <input type="email" id="email" name="email" required><br>
+
+        <label for="collegeName">College Name:</label><br>
+        <input type="text" id="collegeName" name="collegeName" required><br>
+
+        <label for="collegeAddress">College Address:</label><br>
+        <input type="text" id="collegeAddress" name="collegeAddress" required><br><br>
+
+        <!-- Submit button -->
+        <button type="submit">Submit</button>
+    </form>
+
+    <!-- Export Data button -->
+    <label for="export-password">Export Password:</label>
+    <input type="password" id="export-password">
+    <button id="export-data" disabled>Export Data</button>
+
+    <!-- Clear Data button -->
+    <label for="admin-password">Admin Password:</label>
+    <input type="password" id="admin-password">
+    <button id="clear-data" disabled>Clear Data</button>
+
+    <script>
+        // Function to encrypt a string
+        function encryptData(data, key) {
+            var encrypted = '';
+            for (var i = 0; i < data.length; i++) {
+                var charCode = data.charCodeAt(i);
+                encrypted += String.fromCharCode(charCode + key);
+            }
+            return encrypted;
+        }
+
+        // Function to decrypt a string
+        function decryptData(encryptedData, key) {
+            var decrypted = '';
+            for (var i = 0; i < encryptedData.length; i++) {
+                var charCode = encryptedData.charCodeAt(i);
+                decrypted += String.fromCharCode(charCode - key);
+            }
+            return decrypted;
+        }
+
+        // Function to save form data to Local Storage
+        function saveFormData() {
+            var formData = {
+                student1: encryptData(document.getElementById('student1').value, 3),
+                yearbranch1: encryptData(document.getElementById('yearbranch1').value, 3),
+                mobile1: encryptData(document.getElementById('mobile1').value, 3),
+                student2: encryptData(document.getElementById('student2').value, 3),
+                yearbranch2: encryptData(document.getElementById('yearbranch2').value, 3),
+                mobile2: encryptData(document.getElementById('mobile2').value, 3),
+                student3: encryptData(document.getElementById('student3').value, 3),
+                yearbranch3: encryptData(document.getElementById('yearbranch3').value, 3),
+                mobile3: encryptData(document.getElementById('mobile3').value, 3),
+                student4: encryptData(document.getElementById('student4').value, 3),
+                yearbranch4: encryptData(document.getElementById('yearbranch4').value, 3),
+                mobile4: encryptData(document.getElementById('mobile4').value, 3),
+                email: document.getElementById('email').value,
+                collegeName: document.getElementById('collegeName').value,
+                collegeAddress: document.getElementById('collegeAddress').value
+            };
+
+            var formDataList = JSON.parse(localStorage.getItem('formDataList')) || [];
+            formDataList.push(formData);
+            localStorage.setItem('formDataList', JSON.stringify(formDataList));
+        }
+
+        // Load form data when the page is loaded
+        function loadFormData() {
+            var formDataList = JSON.parse(localStorage.getItem('formDataList')) || [];
+            if (formDataList.length > 0) {
+                var latestEntry = formDataList[formDataList.length - 1];
+                document.getElementById('student1').value = decryptData(latestEntry.student1, 3);
+                document.getElementById('yearbranch1').value = decryptData(latestEntry.yearbranch1, 3);
+                document.getElementById('mobile1').value = decryptData(latestEntry.mobile1, 3);
+                document.getElementById('student2').value = decryptData(latestEntry.student2, 3);
+                document.getElementById('yearbranch2').value = decryptData(latestEntry.yearbranch2, 3);
+                document.getElementById('mobile2').value = decryptData(latestEntry.mobile2, 3);
+                document.getElementById('student3').value = decryptData(latestEntry.student3, 3);
+                document.getElementById('yearbranch3').value = decryptData(latestEntry.yearbranch3, 3);
+                document.getElementById('mobile3').value = decryptData(latestEntry.mobile3, 3);
+                document.getElementById('student4').value = decryptData(latestEntry.student4, 3);
+                document.getElementById('yearbranch4').value = decryptData(latestEntry.yearbranch4, 3);
+                document.getElementById('mobile4').value = decryptData(latestEntry.mobile4, 3);
+                document.getElementById('email').value = latestEntry.email;
+                document.getElementById('collegeName').value = latestEntry.collegeName;
+                document.getElementById('collegeAddress').value = latestEntry.collegeAddress;
+            }
+        }
+        
+        // Load form data when the page is loaded
+        loadFormData();
+
+        // Form submission handler
+        document.getElementById('student-form').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent the form from submitting normally
+            saveFormData();
+            alert('Student information submitted successfully!');
+            document.getElementById('student-form').reset(); // Clear the form
+        });
+
+        // Export Data button click handler
+        document.getElementById('export-data').addEventListener('click', function() {
+            var password = document.getElementById('export-password').value;
+            // Check if the export password is correct
+            if (password === 'export123') {
+                var formDataList = JSON.parse(localStorage.getItem('formDataList')) || [];
+                var csvContent = 'data:text/csv;charset=utf-8,';
+                csvContent += 'Student1,Year&Branch1,Mobile1,Student2,Year&Branch2,Mobile2,Student3,Year&Branch3,Mobile3,Student4,Year&Branch4,Mobile4,Email,CollegeName,CollegeAddress\n';
+                formDataList.forEach(function(formData) {
+                    csvContent += `${decryptData(formData.student1, 3)},${decryptData(formData.yearbranch1, 3)},${decryptData(formData.mobile1, 3)},`;
+                    csvContent += `${decryptData(formData.student2, 3)},${decryptData(formData.yearbranch2, 3)},${decryptData(formData.mobile2, 3)},`;
+                    csvContent += `${decryptData(formData.student3, 3)},${decryptData(formData.yearbranch3, 3)},${decryptData(formData.mobile3, 3)},`;
+                    csvContent += `${decryptData(formData.student4, 3)},${decryptData(formData.yearbranch4, 3)},${decryptData(formData.mobile4, 3)},`;
+                    csvContent += `${formData.email},${formData.collegeName},${formData.collegeAddress}\n`;
+                });
+                var encodedUri = encodeURI(csvContent);
+                var link = document.createElement('a');
+                link.setAttribute('href', encodedUri);
+                link.setAttribute('download', 'led_memory_game.csv');
+                document.body.appendChild(link);
+                link.click();
+            } else {
+                alert('Incorrect export password!');
+            }
+        });
+
+        // Enable Export Data button if the export password is correct
+        document.getElementById('export-password').addEventListener('input', function() {
+            var password = document.getElementById('export-password').value;
+            if (password === 'export123') {
+                document.getElementById('export-data').disabled = false;
+            } else {
+                document.getElementById('export-data').disabled = true;
+            }
+        });
+        // Clear Data button click handler
+        document.getElementById('clear-data').addEventListener('click', function() {
+            var password = document.getElementById('admin-password').value;
+            // Check if the admin password is correct
+            if (password === 'admin123') {
+                localStorage.removeItem('formDataList');
+                alert('Data cleared successfully!');
+            } else {
+                alert('Incorrect admin password!');
+            }
+        });
+
+        // Enable Clear Data button if the admin password is correct
+        document.getElementById('admin-password').addEventListener('input', function() {
+            var password = document.getElementById('admin-password').value;
+            if (password === 'admin123') {
+                document.getElementById('clear-data').disabled = false;
+            } else {
+                document.getElementById('clear-data').disabled = true;
+            }
+        });
+    </script>
+        </section>
+    </div>
+</body>
+</html>
