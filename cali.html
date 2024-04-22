@@ -142,33 +142,14 @@
         <section id="registration">
             <h2>Register Now</h2>
     <form id="student-form">
-        <label for="student1">Student 1:</label><br>
+        <label for="student1">Student Name:</label><br>
         <input type="text" id="student1" name="student1" required><br>
-        <label for="yearbranch1">Year & Branch 1:</label><br>
+        <label for="yearbranch1">Year & Branch:</label><br>
         <input type="text" id="yearbranch1" name="yearbranch1" required><br>
-        <label for="mobile1">Mobile 1:</label><br>
+        <label for="mobile1">Mobile No:</label><br>
         <input type="text" id="mobile1" name="mobile1" required><br><br>
-
-        <label for="student2">Student 2:</label><br>
-        <input type="text" id="student2" name="student2" required><br>
-        <label for="yearbranch2">Year & Branch 2:</label><br>
-        <input type="text" id="yearbranch2" name="yearbranch2" required><br>
-        <label for="mobile2">Mobile 2:</label><br>
-        <input type="text" id="mobile2" name="mobile2" required><br><br>
-
-        <label for="student3">Student 3:</label><br>
-        <input type="text" id="student3" name="student3" required><br>
-        <label for="yearbranch3">Year & Branch 3:</label><br>
-        <input type="text" id="yearbranch3" name="yearbranch3" required><br>
-        <label for="mobile3">Mobile 3:</label><br>
-        <input type="text" id="mobile3" name="mobile3" required><br><br>
-
-        <label for="student4">Student 4:</label><br>
-        <input type="text" id="student4" name="student4" required><br>
-        <label for="yearbranch4">Year & Branch 4:</label><br>
-        <input type="text" id="yearbranch4" name="yearbranch4" required><br>
-        <label for="mobile4">Mobile 4:</label><br>
-        <input type="text" id="mobile4" name="mobile4" required><br><br>
+        
+        
 
         <label for="email">Email:</label><br>
         <input type="email" id="email" name="email" required><br>
@@ -178,6 +159,8 @@
 
         <label for="collegeAddress">College Address:</label><br>
         <input type="text" id="collegeAddress" name="collegeAddress" required><br><br>
+        <label for="upi">UPI transaction ID/Cash:</label><br>
+        <input type="text" id="upi" name="upi" required><br><br>
 
         <!-- Submit button -->
         <button type="submit">Submit</button>
@@ -220,15 +203,7 @@
                 student1: encryptData(document.getElementById('student1').value, 3),
                 yearbranch1: encryptData(document.getElementById('yearbranch1').value, 3),
                 mobile1: encryptData(document.getElementById('mobile1').value, 3),
-                student2: encryptData(document.getElementById('student2').value, 3),
-                yearbranch2: encryptData(document.getElementById('yearbranch2').value, 3),
-                mobile2: encryptData(document.getElementById('mobile2').value, 3),
-                student3: encryptData(document.getElementById('student3').value, 3),
-                yearbranch3: encryptData(document.getElementById('yearbranch3').value, 3),
-                mobile3: encryptData(document.getElementById('mobile3').value, 3),
-                student4: encryptData(document.getElementById('student4').value, 3),
-                yearbranch4: encryptData(document.getElementById('yearbranch4').value, 3),
-                mobile4: encryptData(document.getElementById('mobile4').value, 3),
+                upi: encryptData(document.getElementById('upi').value, 3),
                 email: document.getElementById('email').value,
                 collegeName: document.getElementById('collegeName').value,
                 collegeAddress: document.getElementById('collegeAddress').value
@@ -247,15 +222,7 @@
                 document.getElementById('student1').value = decryptData(latestEntry.student1, 3);
                 document.getElementById('yearbranch1').value = decryptData(latestEntry.yearbranch1, 3);
                 document.getElementById('mobile1').value = decryptData(latestEntry.mobile1, 3);
-                document.getElementById('student2').value = decryptData(latestEntry.student2, 3);
-                document.getElementById('yearbranch2').value = decryptData(latestEntry.yearbranch2, 3);
-                document.getElementById('mobile2').value = decryptData(latestEntry.mobile2, 3);
-                document.getElementById('student3').value = decryptData(latestEntry.student3, 3);
-                document.getElementById('yearbranch3').value = decryptData(latestEntry.yearbranch3, 3);
-                document.getElementById('mobile3').value = decryptData(latestEntry.mobile3, 3);
-                document.getElementById('student4').value = decryptData(latestEntry.student4, 3);
-                document.getElementById('yearbranch4').value = decryptData(latestEntry.yearbranch4, 3);
-                document.getElementById('mobile4').value = decryptData(latestEntry.mobile4, 3);
+                document.getElementById('upi').value = decryptData(latestEntry.upi, 3);
                 document.getElementById('email').value = latestEntry.email;
                 document.getElementById('collegeName').value = latestEntry.collegeName;
                 document.getElementById('collegeAddress').value = latestEntry.collegeAddress;
@@ -280,12 +247,9 @@
             if (password === 'export123') {
                 var formDataList = JSON.parse(localStorage.getItem('formDataList')) || [];
                 var csvContent = 'data:text/csv;charset=utf-8,';
-                csvContent += 'Student1,Year&Branch1,Mobile1,Student2,Year&Branch2,Mobile2,Student3,Year&Branch3,Mobile3,Student4,Year&Branch4,Mobile4,Email,CollegeName,CollegeAddress\n';
+                csvContent += 'Student,Year&Branch,Mobile,UPIorCASH,Email,CollegeName,CollegeAddress\n';
                 formDataList.forEach(function(formData) {
-                    csvContent += `${decryptData(formData.student1, 3)},${decryptData(formData.yearbranch1, 3)},${decryptData(formData.mobile1, 3)},`;
-                    csvContent += `${decryptData(formData.student2, 3)},${decryptData(formData.yearbranch2, 3)},${decryptData(formData.mobile2, 3)},`;
-                    csvContent += `${decryptData(formData.student3, 3)},${decryptData(formData.yearbranch3, 3)},${decryptData(formData.mobile3, 3)},`;
-                    csvContent += `${decryptData(formData.student4, 3)},${decryptData(formData.yearbranch4, 3)},${decryptData(formData.mobile4, 3)},`;
+                    csvContent += `${decryptData(formData.student1, 3)},${decryptData(formData.yearbranch1, 3)},${decryptData(formData.mobile1, 3)},${decryptData(formData.upi, 3)},`;
                     csvContent += `${formData.email},${formData.collegeName},${formData.collegeAddress}\n`;
                 });
                 var encodedUri = encodeURI(csvContent);
